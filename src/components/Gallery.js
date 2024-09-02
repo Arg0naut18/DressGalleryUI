@@ -38,7 +38,14 @@ const Gallery = () => {
       if(filters.colorFilter && filters.colorFilter!=='') params.append('color', filters.colorFilter.toLowerCase());
       if (filters.ageFilter) params.append('purchased_year', filters.ageFilter);
       if (filters.brandFilter) params.append('brand', filters.brandFilter.toLowerCase());
-      if (filters.selectedTags.length>0) params.append('tags', filters.selectedTags);
+      if (filters.selectedTags.length>0) {
+        let tags = filters.selectedTags.split(',');
+        let lowerCaseTags = "";
+        tags.map((tag) => {
+          lowerCaseTags+=(tag.toLowerCase()+',')
+        })
+        params.append('tags', lowerCaseTags.substring(0, lowerCaseTags.length-1));
+      }
 
       let finalUrl = `${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/outfit/view?${params.toString()}`;
       console.log(finalUrl);
