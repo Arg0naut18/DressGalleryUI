@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import config from './config';
 
 
 const Register = () => {
@@ -12,7 +13,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/auth/register`, {
+        const response = await fetch(`${config.host}:${config.port}/auth/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

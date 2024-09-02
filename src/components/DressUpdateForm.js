@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import config from './config';
 
 const UpdateClothForm = ({ onClose, onSave, cloth }) => {
   const [name, setName] = useState('');
@@ -38,7 +39,7 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
       }
       const userId = localStorage.getItem("userId");
 
-      const url = `${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/outfit/update/${cloth._id}`;
+      const url = `${config.host}:${config.port}/outfit/update/${cloth._id}`;
       const response = await fetch(url, {
         method: 'PUT',
         headers: {

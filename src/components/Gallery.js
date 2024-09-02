@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DressForm from './DressForm';
 import DressUpdateForm from './DressUpdateForm'
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
+import config from './config';
 
 
 
@@ -47,7 +48,7 @@ const Gallery = () => {
         params.append('tags', lowerCaseTags.substring(0, lowerCaseTags.length-1));
       }
 
-      let finalUrl = `${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/outfit/view?${params.toString()}`;
+      let finalUrl = `${config.host}:${config.port}/outfit/view?${params.toString()}`;
       console.log(finalUrl);
 
       const response = await fetch(finalUrl, {
@@ -147,7 +148,7 @@ const Gallery = () => {
     if (!confirmDelete) {
       return;
     }
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/outfit/delete/${clothId}`, {
+    const response = await fetch(`${config.host}:${config.port}/outfit/delete/${clothId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

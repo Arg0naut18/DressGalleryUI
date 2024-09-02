@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import config from './config';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -14,7 +15,7 @@ const Login = ({ onLogin }) => {
     if (password===null || password==='') {
       alert('Password cannot be empty');
     }
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/auth/login`, {
+    const response = await fetch(`${config.host}:${config.port}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

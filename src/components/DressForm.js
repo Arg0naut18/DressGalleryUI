@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import config from './config';
 
 /* eslint-disable react/prop-types */
 const AddClothForm = ({ onClose, onSave }) => {
@@ -30,7 +31,7 @@ const AddClothForm = ({ onClose, onSave }) => {
       }
       params['user_id'] = userId;
 
-      let endpoint = `${process.env.REACT_APP_BACKEND_HOST}:${process.env.REACT_APP_BACKEND_PORT}/outfit/add`;
+      let endpoint = `${config.host}:${config.port}/outfit/add`;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'content-type': 'application/json' , 'Accept': 'application/json', 'X-User-ID': userId },
