@@ -16,8 +16,5 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Set environment variable to avoid errors when running npm start in production
-ENV NODE_ENV=production
-
 # Start the React app
 CMD ["npm", "start"]
