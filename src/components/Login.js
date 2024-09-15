@@ -15,7 +15,7 @@ const Login = ({ onLogin }) => {
     if (password===null || password==='') {
       alert('Password cannot be empty');
     }
-    const response = await fetch(`${config.host}:${config.port}/auth/login`, {
+    const response = await fetch(`${config.host}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

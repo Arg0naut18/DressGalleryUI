@@ -13,7 +13,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`${config.host}:${config.port}/auth/register`, {
+        const response = await fetch(`${config.host}/auth/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

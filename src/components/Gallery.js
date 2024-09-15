@@ -148,7 +148,7 @@ const Gallery = () => {
     if (!confirmDelete) {
       return;
     }
-    const response = await fetch(`${config.host}:${config.port}/outfit/delete/${clothId}`, {
+    const response = await fetch(`${config.host}/outfit/delete/${clothId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

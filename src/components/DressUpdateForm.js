@@ -39,7 +39,7 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
       }
       const userId = localStorage.getItem("userId");
 
-      const url = `${config.host}:${config.port}/outfit/update/${cloth._id}`;
+      const url = `${config.host}/outfit/update/${cloth._id}`;
       const response = await fetch(url, {
         method: 'PUT',
         headers: {

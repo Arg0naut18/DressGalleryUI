@@ -31,8 +31,7 @@ const AddClothForm = ({ onClose, onSave }) => {
       }
       params['user_id'] = userId;
 
-      let endpoint = `${config.host}:${config.port}/outfit/add`;
-      const response = await fetch(endpoint, {
+      const response = await fetch(`${config.host}/outfit/add`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' , 'Accept': 'application/json', 'X-User-ID': userId },
         body: JSON.stringify(params)
