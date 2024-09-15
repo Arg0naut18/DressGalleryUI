@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
+import { IoLogOut } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 import config from './config';
 import DressForm from './DressForm';
 import DressUpdateForm from './DressUpdateForm';
@@ -22,6 +24,7 @@ const Gallery = () => {
   const [clothToEdit, setClothToEdit] = useState(null);
 
   const userId = localStorage.getItem("userId");
+  const navigate = useNavigate();
 
   const [filters, setFilters] = useState({
     searchTerm: '',
@@ -125,7 +128,7 @@ const Gallery = () => {
   };
 
   const handleFormSave = () => {
-    fetchClothes(); // Refresh the gallery after saving
+    fetchClothes();
     setIsFormOpen(false);
     setIsUpdateMode(false);
     setClothToEdit(null);
@@ -140,7 +143,7 @@ const Gallery = () => {
   const handleUpdate = (cloth) => {
     setIsFormOpen(true);
     setIsUpdateMode(true);
-    setClothToEdit(cloth); // Set the cloth to be edited
+    setClothToEdit(cloth);
   };
 
   const handleDelete = async (clothId) => {
@@ -162,6 +165,11 @@ const Gallery = () => {
       alert('Failed to delete the item.');
     }
   };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/login');
+  }
 
   return (
     <div className="clothes-catalog">
@@ -229,12 +237,13 @@ const Gallery = () => {
         ))}
       </div>
       <button className="floating-button" onClick={handleOpenForm}>+</button>
+      <button className="floating-button" onClick={handleLogout}><IoLogOut /></button>
       {isFormOpen && (
         isUpdateMode ? (
           <DressUpdateForm
             onClose={() => setIsFormOpen(false)}
             onSave={handleFormSave}
-            cloth={clothToEdit} // Pass the cloth to be edited
+            cloth={clothToEdit}
           />
         ) : (
           <DressForm
