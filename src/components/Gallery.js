@@ -52,7 +52,6 @@ const Gallery = () => {
       }
 
       let finalUrl = `${config.host}/outfit/view?${params.toString()}`;
-      console.log(finalUrl);
 
       const response = await fetch(finalUrl, {
         headers: {

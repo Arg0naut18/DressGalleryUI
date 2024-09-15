@@ -20,7 +20,7 @@ const AddClothForm = ({ onClose, onSave }) => {
       const params = {};
       params['name'] = name.toLowerCase();
       params['color'] = color.toLowerCase();
-      params['image'] = image.toLowerCase();
+      params['image'] = image;
       if (age) params['purchased_year'] = age;
       if (brand) params['brand'] = brand.toLowerCase();
       if (tags.length > 0) {
