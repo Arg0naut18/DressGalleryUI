@@ -126,10 +126,8 @@ body {
 .floating-button {
   position: fixed;
   bottom: 20px;
-  right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50%;
@@ -271,4 +269,14 @@ body {
   margin-top: 10px;
   width: 100px;
   align-self: center;
+}
+
+.logout-button {
+  background-color: #ff0d00;
+  right: 20px;
+}
+
+.add-outfit {
+  background-color: #007bff;
+  right: 60px;
 }

@@ -236,8 +236,8 @@ const Gallery = () => {
           </div>
         ))}
       </div>
-      <button className="floating-button" onClick={handleOpenForm}>+</button>
-      <button className="floating-button" onClick={handleLogout}><IoLogOut /></button>
+      <button className="floating-button add-outfit" onClick={handleOpenForm}>+</button>
+      <button className="floating-button logout-button" onClick={handleLogout}><IoLogOut /></button>
       {isFormOpen && (
         isUpdateMode ? (
           <DressUpdateForm
