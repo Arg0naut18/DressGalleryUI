@@ -74,32 +74,38 @@ const AddClothForm = ({ onClose, onSave }) => {
       <div className="form-container">
         <h2>Add New Garment</h2>
         <form onSubmit={handleSubmit} id='dress-form'>
-          <label>
-            Name:
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-          </label>
-          <label>
-            Color:
-            <input type="text" value={color} onChange={(e) => setColor(e.target.value)} required />
-          </label>
-          <label>
-            Year Purchased:
-            <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
-          </label>
-          <label>
-            Brand:
-            <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} />
-          </label>
-          <label>
-            Image:
-            <input type="file" accept="image/*" onChange={handleImageChange} required />
-          </label>
-          <label>
-            Tags:
-            <input type="text" value={selectedTags} onChange={(e) => setSelectedTags(e.target.value)} />
-          </label>
-          <button type="submit">Add Cloth</button>
-          <button type="button" onClick={onClose}>Cancel</button>
+          <table cellSpacing={5} cellPadding={5} align='center'>
+            <tbody>
+              <tr>
+                <th>Name:</th>
+                <th><input type="text" value={name} name="dress-form-name" onChange={(e) => setName(e.target.value)} required /></th>
+              </tr>
+              <tr>
+                <th>Color:</th>
+                <th><input type="text" value={color} name='dress-form-color' onChange={(e) => setColor(e.target.value)} required /></th>
+              </tr>
+              <tr>
+                <th>Year Purchased:</th>
+                <th><input type="number" value={age} name='dress-form-year' onChange={(e) => setAge(e.target.value)} /></th>
+              </tr>
+              <tr>
+                <th>Brand:</th>
+                <th><input type="text" value={brand} name='dress-form-brand' onChange={(e) => setBrand(e.target.value)} /></th>
+              </tr>
+              <tr>
+                <th>Image:</th>
+                <th><input type="file" accept="image/*" name='dress-form-image' onChange={handleImageChange} required /></th>
+              </tr>
+              <tr>
+                <th>Tags:</th>
+                <th><input type="text" value={selectedTags} name='dress-form-tags' onChange={(e) => setSelectedTags(e.target.value)} /></th>
+              </tr>
+              <tr>
+                <th><button type="button" onClick={onClose}>Cancel</button></th>
+                <th><button type="submit">Add Outfit</button></th>
+              </tr>
+          </tbody>
+          </table>
         </form>
       </div>
     </div>

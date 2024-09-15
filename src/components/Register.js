@@ -40,19 +40,19 @@ const Register = () => {
               <tbody>
                 <tr>
                   <th>Username:</th>
-                  <th><input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required /></th>
+                  <th><input type="text" value={username} name='register-username' onChange={(e) => setUsername(e.target.value)} required /></th>
                 </tr>
                 <tr>
                   <th>Email:</th>
-                  <th><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></th>
+                  <th><input type="email" value={email} name='register-email' onChange={(e) => setEmail(e.target.value)} required /></th>
                 </tr>
                 <tr>
                   <th>Phone Number:</th>
-                  <th><input type="text" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)}/></th>
+                  <th><input type="text" value={phoneNumber} name='register-phone' onChange={(e) => setPhoneNumber(e.target.value)}/></th>
                 </tr>
                 <tr>
                   <th>Password:</th>
-                  <th><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /></th>
+                  <th><input type="password" value={password} name='register-password' onChange={(e) => setPassword(e.target.value)} required /></th>
                 </tr>
                 <tr>
                   <th colSpan={2}><button type="submit">Register</button></th>

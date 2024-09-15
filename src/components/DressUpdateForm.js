@@ -87,37 +87,44 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
         <div className="form-container">
             <h2>Update Garment</h2>
             <form onSubmit={handleSubmit} id='dress-update-form'>
-                <div>
-                <label>Name:</label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-                </div>
-                <div>
-                <label>Color:</label>
-                <input type="text" value={color} onChange={(e) => setColor(e.target.value)} required />
-                </div>
-                <div>
-                <label>Year Purchased:</label>
-                <input type="text" value={age} onChange={(e) => setAge(e.target.value)} />
-                </div>
-                <div>
-                <label>Brand:</label>
-                <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} />
-                </div>
-                <div>
-                <label>Tags (comma-separated):</label>
-                <input
-                    type="text"
-                    value={tagsString}
-                    onChange={(e) => setTagsString(e.target.value)}
-                    placeholder="e.g., summer, hoodie, casual"
-                />
-                </div>
-                <div>
-                <label>Image:</label>
-                <input type="file" onChange={handleImageChange} />
-                </div>
-                <button type="submit" onClick={handleSubmit}>Update</button>
-                <button type="button" onClick={onClose}>Cancel</button>
+              <table cellSpacing={5} cellPadding={5} align='center'>
+                <tbody>
+                  <tr>
+                    <th>Name:</th>
+                    <th><input type="text" value={name} name='dress-update-name' onChange={(e) => setName(e.target.value)} required /></th>
+                  </tr>
+                  <tr>
+                    <th>Color:</th>
+                    <th><input type="text" value={color} name='dress-update-color' onChange={(e) => setColor(e.target.value)} required /></th>
+                  </tr>
+                  <tr>
+                    <th>Year Purchased:</th>
+                    <th><input type="text" value={age} name='dress-update-year' onChange={(e) => setAge(e.target.value)} /></th>
+                  </tr>
+                  <tr>
+                    <th>Brand:</th>
+                    <th><input type="text" value={brand} name='dress-update-brand' onChange={(e) => setBrand(e.target.value)} /></th>
+                  </tr>
+                  <tr>
+                    <th>Tags (comma-separated):</th>
+                    <th><input
+                        type="text"
+                        value={tagsString}
+                        name='dress-update-tags'
+                        onChange={(e) => setTagsString(e.target.value)}
+                        placeholder="e.g., summer, hoodie, casual"
+                    /></th>
+                  </tr>
+                  <tr>
+                    <th>Image:</th>
+                    <th><input type="file" name='dress-update-image' onChange={handleImageChange} /></th>
+                  </tr>
+                  <tr>
+                    <th><button type="button" onClick={onClose}>Cancel</button></th>
+                    <th><button type="submit" onClick={handleSubmit}>Update Outfit</button></th>
+                  </tr>
+                </tbody>
+              </table>
             </form>
         </div>
     </div>

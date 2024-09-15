@@ -46,11 +46,11 @@ const Login = ({ onLogin }) => {
           <tbody>
             <tr>
               <th>Username:</th>
-              <th><input type="text" value={username} onChange={(e) => setUsername(e.target.value)} /></th>
+              <th><input type="text" value={username} name='login-username' onChange={(e) => setUsername(e.target.value)} /></th>
             </tr>
             <tr>
               <th>Password:</th>
-              <th><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /></th>
+              <th><input type="password" value={password} name='login-password' onChange={(e) => setPassword(e.target.value)} /></th>
             </tr>
             <tr>
               <th colSpan={2}><button type="submit" name='login' onClick={handleLogin}>Login</button></th>
