@@ -125,7 +125,7 @@ body {
 
 .floating-button {
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   width: 60px;
   height: 60px;
   color: white;
@@ -278,5 +278,5 @@ body {
 
 .add-outfit {
   background-color: #007bff;
-  right: 60px;
+  right: 100px;
 }
