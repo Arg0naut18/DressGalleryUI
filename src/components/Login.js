@@ -7,6 +7,13 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  let endpoint;
+  if(`${config.environment}`==='Production') {
+    endpoint = `${config.host}`
+  } else {
+    endpoint = `${config.host}:${config.port}`
+  }
+
   const handleLogin = async (event) => {
     event.preventDefault();
     if (username===null || username==='') {
@@ -15,13 +22,16 @@ const Login = ({ onLogin }) => {
     if (password===null || password==='') {
       alert('Password cannot be empty');
     }
-    const response = await fetch(`${config.host}/auth/login`, {
+    const response = await fetch(`${endpoint}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
       body: JSON.stringify({ username, password }),
+    }).catch((error) => {
+      console.log(error);
+      return {ok: false, message: "Error occurred!"}
     })
 
     if (response.ok) {

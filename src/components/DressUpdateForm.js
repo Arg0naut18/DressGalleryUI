@@ -9,6 +9,13 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
   const [image, setImage] = useState(null);
   const [tagsString, setTagsString] = useState('');
 
+  let endpoint;
+  if(`${config.environment}`==='Production') {
+    endpoint = `${config.host}`
+  } else {
+    endpoint = `${config.host}:${config.port}`
+  }
+
   useEffect(() => {
     if (cloth) {
       setName(cloth.name || '');
@@ -24,9 +31,10 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
     event.preventDefault();
 
     const tags = tagsString.split(',').map(tag => tag.trim().toLowerCase()).filter(tag => tag);
+    const params = {};
+    const userId = localStorage.getItem("userId");
 
     try {
-      const params = {};
       params['name'] = name.toLowerCase();
       params['color'] = color.toLowerCase();
       if (age) params['purchased_year'] = age;
@@ -37,11 +45,9 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
       if (image) {
         params['image'] = image;
       }
-      const userId = localStorage.getItem("userId");
-      console.log(params);
-      console.log(userId);
+      params['user_id'] = userId;
 
-      const url = `${config.host}/outfit/update/${cloth._id}`;
+      const url = `${endpoint}/outfit/update/${cloth._id}`;
       const response = await fetch(url, {
         method: 'PUT',
         headers: {

@@ -10,10 +10,17 @@ const Register = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
 
+    let endpoint;
+    if(`${config.environment}`==='Production') {
+      endpoint = `${config.host}`
+    } else {
+      endpoint = `${config.host}:${config.port}`
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`${config.host}/auth/register`, {
+        const response = await fetch(`${endpoint}/auth/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

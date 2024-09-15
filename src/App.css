@@ -140,6 +140,10 @@ body {
   z-index: 1000;
 }
 
+.floating-button:hover {
+  transform: scale(1.25);
+}
+
 .cloth-form-overlay {
   position: fixed;
   top: 0;

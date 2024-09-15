@@ -13,6 +13,13 @@ const AddClothForm = ({ onClose, onSave }) => {
   const tags = selectedTags.split(',').map(tag => tag.trim().toLowerCase()).filter(tag => tag);
   const userId = localStorage.getItem('userId');
 
+  let endpoint;
+  if(`${config.environment}`==='Production') {
+    endpoint = `${config.host}`
+  } else {
+    endpoint = `${config.host}:${config.port}`
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -28,7 +35,7 @@ const AddClothForm = ({ onClose, onSave }) => {
       }
       params['user_id'] = userId;
 
-      const response = await fetch(`${config.host}/outfit/add`, {
+      const response = await fetch(`${endpoint}/outfit/add`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' , 'Accept': 'application/json', 'X-User-ID': userId },
         body: JSON.stringify(params)

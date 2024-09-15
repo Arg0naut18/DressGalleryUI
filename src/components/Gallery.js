@@ -33,6 +33,13 @@ const Gallery = () => {
     colorFilter: ''
   });
 
+  let endpoint;
+  if(`${config.environment}`==='Production') {
+    endpoint = `${config.host}`
+  } else {
+    endpoint = `${config.host}:${config.port}`
+  }
+
   const fetchClothes = async () => {
     setLoading(true);
     setError(null);
@@ -51,7 +58,7 @@ const Gallery = () => {
         params.append('tags', lowerCaseTags.substring(0, lowerCaseTags.length-1));
       }
 
-      let finalUrl = `${config.host}/outfit/view?${params.toString()}`;
+      let finalUrl = `${endpoint}/outfit/view?${params.toString()}`;
 
       const response = await fetch(finalUrl, {
         headers: {
@@ -150,7 +157,7 @@ const Gallery = () => {
     if (!confirmDelete) {
       return;
     }
-    const response = await fetch(`${config.host}/outfit/delete/${clothId}`, {
+    const response = await fetch(`${endpoint}/outfit/delete/${clothId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
