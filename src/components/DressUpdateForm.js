@@ -23,14 +23,14 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const tags = tagsString.split(',').map(tag => tag.trim()).filter(tag => tag);
+    const tags = tagsString.split(',').map(tag => tag.trim().toLowerCase()).filter(tag => tag);
 
     try {
       const params = {};
-      params['name'] = name;
-      params['color'] = color;
+      params['name'] = name.toLowerCase();
+      params['color'] = color.toLowerCase();
       if (age) params['purchased_year'] = age;
-      if (brand) params['brand'] = brand;
+      if (brand) params['brand'] = brand.toLowerCase();
       if (tags.length > 0) {
         params['tags'] = tags;
       }
@@ -38,6 +38,8 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
         params['image'] = image;
       }
       const userId = localStorage.getItem("userId");
+      console.log(params);
+      console.log(userId);
 
       const url = `${config.host}/outfit/update/${cloth._id}`;
       const response = await fetch(url, {

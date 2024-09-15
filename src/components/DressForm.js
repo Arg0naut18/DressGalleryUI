@@ -10,7 +10,7 @@ const AddClothForm = ({ onClose, onSave }) => {
   const [image, setImage] = useState(null);
   const [selectedTags, setSelectedTags] = useState('');
 
-  const tags = selectedTags.split(',').map(tag => tag.trim()).filter(tag => tag);
+  const tags = selectedTags.split(',').map(tag => tag.trim().toLowerCase()).filter(tag => tag);
   const userId = localStorage.getItem('userId');
 
   const handleSubmit = async (event) => {
@@ -24,9 +24,6 @@ const AddClothForm = ({ onClose, onSave }) => {
       if (age) params['purchased_year'] = age;
       if (brand) params['brand'] = brand.toLowerCase();
       if (tags.length > 0) {
-        for (let index = 0; index < tags.length; index++) {
-          tags[index] = tags[index].toLowerCase();
-        }
         params['tags'] = tags;
       }
       params['user_id'] = userId;
