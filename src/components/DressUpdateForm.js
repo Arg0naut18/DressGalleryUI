@@ -86,7 +86,7 @@ const UpdateClothForm = ({ onClose, onSave, cloth }) => {
     <div className="cloth-form-overlay">
         <div className="form-container">
             <h2>Update Garment</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id='dress-update-form'>
                 <div>
                 <label>Name:</label>
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />

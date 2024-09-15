@@ -39,7 +39,7 @@ const Login = ({ onLogin }) => {
   }
 
   return (
-    <form className='login-form'>
+    <form className='login-form' id='login-form'>
       <div className='login-block'>
         <h1>Welcome to Clothes Gallery!</h1>
         <table cellSpacing={12} cellPadding={12} align='center'>

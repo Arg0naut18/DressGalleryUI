@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import DressForm from './DressForm';
-import DressUpdateForm from './DressUpdateForm'
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 import config from './config';
+import DressForm from './DressForm';
+import DressUpdateForm from './DressUpdateForm';
 
 
 
@@ -48,7 +48,7 @@ const Gallery = () => {
         params.append('tags', lowerCaseTags.substring(0, lowerCaseTags.length-1));
       }
 
-      let finalUrl = `${config.host}:${config.port}/outfit/view?${params.toString()}`;
+      let finalUrl = `${config.host}/outfit/view?${params.toString()}`;
       console.log(finalUrl);
 
       const response = await fetch(finalUrl, {

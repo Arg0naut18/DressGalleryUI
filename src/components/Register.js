@@ -32,7 +32,7 @@ const Register = () => {
     };
 
     return (
-        <form className='register-form' onSubmit={handleSubmit}>
+        <form className='register-form' onSubmit={handleSubmit} id='register-form'>
           <div className='register-body'>
             <h1>Welcome to Clothes Gallery!</h1>
             <h3>Thank you for trying out clothes gallery. Join our community to keep a better track of all your outfits.</h3>
