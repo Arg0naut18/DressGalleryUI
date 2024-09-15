@@ -27,7 +27,7 @@ const Register = () => {
           navigate('/login');
         } else {
           console.log(response.json())
-          alert('Registration failed!');
+          alert(`Registration failed! Username already exists!`);
         }
     };
 
